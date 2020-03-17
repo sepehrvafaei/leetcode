@@ -20,12 +20,12 @@ class Solution:
             else:break
         if not s[i].isnumeric():i-=1
         try:
-            num=int(s[j:i+1])*sign
+            n=int(s[j:i+1])*sign
         except ValueError:
             return 0
-        if num>2147483647:
+        if n>2147483647:
             return 2147483647
-        elif num<-2147483648:
+        elif n<-2147483648:
             return -2147483648
         else:
-            return num
+            return n
