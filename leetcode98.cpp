@@ -17,3 +17,28 @@ public:
 //iterative using stack(faster)
 //time complexity:O(v)
 //space complexity:O(h)
+#include<math.h>
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        if(root==nullptr){return true;}
+        vector<TreeNode> S;
+        double temp=-INFINITY;
+        while(true){
+            if(root!=nullptr){
+                S.push_back(*root);
+                root=root->left;
+            }
+            else{
+                if(S.empty()){break;}
+                root=&(S.back());
+                S.pop_back();
+                if (root->val<=temp){return false;}
+                temp=root->val;
+                root=root->right;
+                
+            }
+        }
+        return true;
+    }
+};
